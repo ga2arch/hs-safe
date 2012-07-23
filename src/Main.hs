@@ -37,3 +37,10 @@ handleOpts (Get {..}) pass m = do
 handleOpts (Set {..}) pass m = do
     let nm = M.insert key value m
     saveSafe pass safeLoc nm
+
+authenticate :: FilePath -> IO (Maybe (String, Safe))
+authenticate path = do
+    b <- doesFileExist path
+    if b
+        then openSafe path
+        else createSafe path

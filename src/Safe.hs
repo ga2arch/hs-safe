@@ -1,6 +1,5 @@
 module Safe 
-    ( authenticate
-    , openSafe
+    ( openSafe
     , createSafe
     , saveSafe
     ) where
@@ -14,13 +13,6 @@ import qualified Data.Map as M
 
 import Types
 import Encription
-
-authenticate :: FilePath -> IO (Maybe (String, Safe))
-authenticate path = do
-    b <- doesFileExist path
-    if b
-        then openSafe path
-        else createSafe path
 
 openSafe :: FilePath -> IO (Maybe (String, Safe))
 openSafe path = do

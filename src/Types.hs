@@ -7,6 +7,7 @@ module Types
 
 import Data.Typeable
 import System.Console.CmdArgs
+
 import qualified Data.Map as M
 
 data Action = Get { key :: String}
